@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2 class="title">Lista de Usuarios</h2>
+  <table class="process-form" border="1">
+    <tr><th>Nombre</th><th>Email</th></tr>
+    {% for usuario in usuarios %}
+      <tr>
+        <td>{{ usuario.nombre }}</td>
+        <td>{{ usuario.email }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,14 @@
+mi_app/
+│
+├── app.py                # Código del backend con Flask
+├── templates/
+│   ├── base.html         # Plantilla base con el diseño común
+│   ├── index.html        # Página de inicio con el formulario de registro
+│   ├── home.html         # Página con mensaje de bienvenida tras el registro
+│   └── productos.html    # Página para mostrar productos
+│   └── usuarios.html     # Página para mostrar usuarios en una tabla
+├── static/
+│   └── css/
+│       └── styles.css    # Archivo de estilos
+├── requirements.txt      # Dependencias (Flask)
+└── README.md             # Documentación de la aplicación
