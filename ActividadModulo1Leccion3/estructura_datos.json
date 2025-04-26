@@ -1,0 +1,36 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "nombre": "Ana Pérez",
+            "correo": "ana.perez@example.com",
+            "direccion": "Calle 123, Ciudad",
+            "telefono": "1234567890"
+        },
+        {
+            "id": 2,
+            "nombre": "Carlos Gómez",
+            "correo": "carlos.gomez@example.com",
+            "direccion": "Av. Siempre Viva 742",
+            "telefono": "0987654321"
+        }
+    ],
+    "productos": [
+        {
+            "id": 101,
+            "nombre": "Laptop Lenovo",
+            "descripcion": "Laptop con procesador Intel i7 y 16GB RAM",
+            "precio": 850.99,
+            "stock": 12,
+            "categoria": "Tecnología"
+        },
+        {
+            "id": 102,
+            "nombre": "Cafetera eléctrica",
+            "descripcion": "Cafetera con temporizador y capacidad de 1.5L",
+            "precio": 45.5,
+            "stock": 30,
+            "categoria": "Electrodomésticos"
+        }
+    ]
+}

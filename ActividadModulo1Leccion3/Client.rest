@@ -1,0 +1,27 @@
+### Obtener información del sistema
+GET http://127.0.0.1:5000/info
+Content-Type: application/json
+
+
+### Crear un nuevo usuario (ejemplo válido)
+POST http://127.0.0.1:5000/crear_usuario
+Content-Type: application/json
+
+{
+  "nombre": "Juan Pérez",
+  "correo": "juan@example.com"
+}
+
+
+### Crear un nuevo usuario (ejemplo con error: falta 'correo')
+POST http://127.0.0.1:5000/crear_usuario
+Content-Type: application/json
+
+{
+  "nombre": "Laura Gómez"
+}
+
+
+### Obtener todos los usuarios
+GET http://127.0.0.1:5000/usuarios
+Content-Type: application/json
