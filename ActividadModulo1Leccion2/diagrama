@@ -1,0 +1,18 @@
+flask-api-project/
+│
+├── cliente/                               
+│   └── solicitudes/                       
+│       ├── GET /                           
+│       ├── POST /saludo                    
+│       └── GET, POST /usuarios            
+│
+├── servidor/                               
+│   └── app.py                              
+│       ├── @app.route("/") [GET]           
+│       ├── @app.route("/saludo") [POST]    
+│       └── @app.route("/usuarios")        
+│
+├── base_de_datos/                         
+│   └── sqlite.db                           
+│
+└── requirements.txt                        
