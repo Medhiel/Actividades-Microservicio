@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Registro de Usuario
+{% endblock %}
+
+{% block content %}
+  <h2 class="title">Formulario de Registro</h2>
+  <form method="POST" class="process-form">
+    {{ form.hidden_tag() }}
+
+    <label for="nombre">Nombre de Usuario:</label>
+    {{ form.nombre(class="form-control", placeholder="Escribe tu nombre de usuario") }}
+    {% for error in form.nombre.errors %}
+        <div style="color: red;">{{ error }}</div>
+    {% endfor %}
+
+    <label for="correo">Correo Electrónico:</label>
+    {{ form.correo(class="form-control", placeholder="correo@ejemplo.com") }}
+    {% for error in form.correo.errors %}
+        <div style="color: red;">{{ error }}</div>
+    {% endfor %}
+
+    <label for="contraseña">Contraseña:</label>
+    {{ form.contraseña(class="form-control", placeholder="Contraseña segura") }}
+    {% for error in form.contraseña.errors %}
+        <div style="color: red;">{{ error }}</div>
+    {% endfor %}
+
+    <hr>
+    {{ form.submit(class="btn btn-primary") }}
+  </form>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} mt-2">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+{% endblock %}
