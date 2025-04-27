@@ -1,0 +1,23 @@
+### Iniciar sesión como Admin
+POST http://127.0.0.1:5000/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&role=admin
+
+### Iniciar sesión como User
+POST http://127.0.0.1:5000/login
+Content-Type: application/x-www-form-urlencoded
+
+username=user&role=user
+
+### Probar acceso a la página de administración (solo accesible para admin)
+GET http://127.0.0.1:5000/protected
+Authorization: Bearer <token_si_es_necesario>
+
+### Probar acceso a la página de usuario (solo accesible para user)
+GET http://127.0.0.1:5000/protected
+Authorization: Bearer <token_si_es_necesario>
+
+### Cerrar sesión
+GET http://127.0.0.1:5000/logout
+Authorization: Bearer <token_si_es_necesario>

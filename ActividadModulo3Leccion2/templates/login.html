@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión</title>
+</head>
+<body>
+    <h1>Iniciar sesión</h1>
+    <form method="POST">
+        <label for="username">Nombre de usuario:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="role">Selecciona un rol:</label><br>
+        <select id="role" name="role" required>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+        </select><br><br>
+        
+        <button type="submit">Iniciar sesión</button>
+    </form>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li style="color: green;">{{ message }}</li>  <!-- Puedes cambiar el color según lo que desees -->
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>
