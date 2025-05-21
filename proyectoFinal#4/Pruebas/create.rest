@@ -1,0 +1,6 @@
+POST http://127.0.0.1:5000/eventos/crear
+Content-Type: application/x-www-form-urlencoded
+
+nombre=Evento+de+Prueba&descripcion=Descripción+de+prueba&fecha_hora=2025-12-31+18:00&ubicacion=Auditorio&capacidad=100&organizador_id=1
+
+

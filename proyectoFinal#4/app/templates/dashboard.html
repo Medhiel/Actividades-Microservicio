@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block title %}Panel de Eventos{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="col">
+    <h3>Administración de Eventos</h3>
+  </div>
+  <div class="col text-end">
+    {% if current_user.role.name != 'Participante' %}
+    <a class="btn btn-primary mb-3 me-2" href="{{ url_for('eventos.crear_evento') }}">
+      <i class="bi bi-plus"></i> Nuevo Evento
+    </a>
+    {% endif %}
+  </div>
+</div>
+
+<table class="table table-bordered table-hover">
+  <thead class="table-light">
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Ubicación</th>
+      <th>Fecha y Hora</th>
+      <th>Capacidad</th>
+      <th class="text-center">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for evento in eventos %}
+    <tr>
+      <td>{{ evento.nombre }}</td>
+      <td>{{ evento.descripcion }}</td>
+      <td>{{ evento.ubicacion }}</td>
+      <td>{{ evento.fecha_hora.strftime('%Y-%m-%d %H:%M') }}</td>
+      <td>{{ evento.capacidad }}</td>
+      <td class="text-center ps-0 pe-0">
+        {% if current_user.role.name == 'Admin' %}
+        <a
+          class="btn btn-sm btn-warning"
+          href="{{ url_for('eventos.editar_evento', id=evento.id) }}"
+          title="Editar evento"
+        >
+          <i class="bi bi-pencil"></i>
+        </a>
+        <form
+          method="POST"
+          action="{{ url_for('eventos.eliminar_evento', id=evento.id) }}"
+          style="display: inline"
+          onsubmit="return confirm('¿Seguro que deseas eliminar este evento?');"
+        >
+          <button
+            type="submit"
+            class="btn btn-sm btn-danger"
+            title="Eliminar evento"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </form>
+        {% else %}
+        <span class="text-muted"><i class="bi bi-lock"></i></span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% if current_user.role.name == 'Participante' %}
+<p class="text-center pe-3 mt-0 text-body-tertiary fw-lighter fst-italic">
+  No tienes permiso para crear, actualizar o eliminar eventos.
+</p>
+{% endif %}
+{% endblock %}

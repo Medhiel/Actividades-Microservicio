@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Eventos</h2>
+<a href="{{ url_for('eventos.crear_evento') }}">Crear nuevo evento</a>
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Fecha y Hora</th>
+        <th>Capacidad</th>
+        <th>Acciones</th>
+    </tr>
+    {% for evento in eventos %}
+    <tr>
+        <td>{{ evento.nombre }}</td>
+        <td>{{ evento.ubicacion }}</td>
+        <td>{{ evento.fecha_hora.strftime('%Y-%m-%d %H:%M') }}</td>
+        <td>{{ evento.capacidad }}</td>
+        <td>
+            <a href="{{ url_for('eventos.editar_evento', id=evento.id) }}">Editar</a>
+            <form action="{{ url_for('eventos.eliminar_evento', id=evento.id) }}" method="post" style="display:inline;">
+                <button type="submit" onclick="return confirm('¿Eliminar este evento?')">Eliminar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

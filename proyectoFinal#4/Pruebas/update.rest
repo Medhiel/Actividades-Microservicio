@@ -1,0 +1,4 @@
+POST http://127.0.0.1:5000/eventos/editar/1
+Content-Type: application/x-www-form-urlencoded
+
+nombre=Evento+Actualizado&descripcion=Descripción+actualizada&fecha=2026-01-01+19:00
