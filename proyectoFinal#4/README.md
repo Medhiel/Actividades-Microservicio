@@ -131,4 +131,4 @@ MIT
 ---
 
 **Desarrollado por:**  
-Tu Nombre / Equipo
+Adrian M. López Pino / R00652249
